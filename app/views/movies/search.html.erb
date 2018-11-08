@@ -1,0 +1,37 @@
+<section class='CTA'> 
+				<table class="table table-striped">
+				  	<tr>
+				    	<th></th>
+				    	<th>Title</th>
+				    	<th>Release date</th>
+				    	<th>Director</th>
+				    	<th></th>
+				    	<th></th>
+				  	</tr>
+						<% if @search_results[:results][0]==nil %>
+							<div class="alert-danger" align="center" style="height: 100px; width: 300px;"> 
+								<p style="padding-top: 40px;"> Ce film n'existe pas</p>
+							</div>
+						<% else %>
+							<% @search_results[:results].each do |s| %>
+							<tr>
+								<% if s.backdrop_path == nil %>
+					    			<td align="center" style="max-width: 200px;">
+					    				<p>no image</p>
+					    			</td>
+					    		<% else %>
+						    		<td style="max-width: 100px;">
+							      		<%= s.title %> 		
+							      	</td>
+									<td> <%= s.release_date %> </td>
+									<td> Movie Director</td>
+								<% end %>
+							</tr>
+							<% end %>
+						<% end %>
+				</table>
+</section>
+		
+	
+	
+	

@@ -1,0 +1,23 @@
+<div style="text-align: center;">
+<section class='CTA'> 
+<br></br> 
+<br></br>
+<br></br><strong><em><h3><font color="white">Choisis ton film : </font></h3></strong></em>
+		 </br></h3>
+		 <br></br>
+			<h5><div class="text-center thin">
+				<!-- Insert du service ICI  -->
+				<%= form_for(:request, url: search_path) do |f| %>
+			      <%= f.label :name %>
+			      <%= f.text_field :name %>
+			      <%= f.submit "Accéder", class: "btn btn-primary" %>
+			     <% end %>
+			</div></h5>
+<br> <br>
+
+
+</div>
+</section>
+			 <!-- /row  -->
+
+	
