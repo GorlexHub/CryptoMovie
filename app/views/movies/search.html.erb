@@ -1,5 +1,5 @@
 <section class='CTA'> 
-				<table class="table table-striped">
+				<table class="table table-striped" style="color: white">
 				  	<tr>
 				    	<th></th>
 				    	<th>Title</th>
@@ -13,25 +13,19 @@
 								<p style="padding-top: 40px;"> Ce film n'existe pas</p>
 							</div>
 						<% else %>
-							<% @search_results[:results].each do |s| %>
-							<tr>
+							<% @search_results[:results].each_with_index do |s| %>
+							  <tr>
 								<% if s.backdrop_path == nil %>
-					    			<td align="center" style="max-width: 200px;">
-					    				<p>no image</p>
-					    			</td>
-					    		<% else %>
-						    		<td style="max-width: 100px;">
-							      		<%= s.title %> 		
-							      	</td>
-									<td> <%= s.release_date %> </td>
-									<td> Movie Director</td>
-								<% end %>
-							</tr>
+					   		<% else %>
+                  <td style= "max-width: 300px;"> <%= image_tag("https://image.tmdb.org/t/p/w600_and_h900_bestv2" +  s.poster_path)  %> </td>
+						   	<td>
+						    	<%= s.title %>
+						    </td>
+					  		<td> <%= s.release_date %> </td>
+								<td> <%= Tmdb::Movie.director(s.id).first.name %> </td>
+						  	</tr>
+                <% end %>
 							<% end %>
 						<% end %>
 				</table>
 </section>
-		
-	
-	
-	

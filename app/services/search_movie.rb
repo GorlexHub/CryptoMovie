@@ -9,7 +9,7 @@ class SearchMovie
   end
 
   def perform
-    Tmdb::Api.key(Rails.application.credentials.dig(:moviedb))
+    Tmdb::Api.key(Rails.application.credentials.dig(:api_key))
     @result = Tmdb::Search.movie(@request)
     # Tmdb::Movie.director(@result[0].id) # donne le director.
   end
